@@ -3,10 +3,23 @@ import playerData from "./playerData.js";
 
 
 function BaseballCard(props) {
+  // return (
+  //   <div className="card">
+  //     <h2>{props.name}</h2>
+  //     <img src={props.imgUrl} alt={props.name} />
+  //   </div>
+  // );
+  const statsDisplay = Object.entries(props.stats).map(([statName, statValue]) => (
+    <p key={statName}>
+      {statName}: {statValue}
+    </p>
+  ));
   return (
     <div className="card">
       <h2>{props.name}</h2>
-      <img src={props.imgUrl} alt={props.name} />
+      <p>Team: {props.team}</p>
+      <p>Position: {props.position}</p>
+      {statsDisplay}
     </div>
   );
 }
